@@ -2,14 +2,18 @@
 title: "simpleRegress"
 author: "Nicole Orizino"
 date: "Spring 2021"
-output: html_document
+output: 
+        html_document:
+           toc: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## make a simple regression model
+# Bears Regression model
+
+### make a simple regression model - read in the data
 
 ```{r}
 bears <- read.csv(file="BEARS.csv",header = TRUE)
@@ -24,13 +28,50 @@ abline(simp)
 summary.lm(simp)
 ```
 
+This shows that the residual standard error is 5.38 on 52 degrees of freedom and the Adjusted R- squared is 0.748. 
+
 ## now predict the length of a bear who has a neck of 17, 22 and 26
 
 
 ```{r}
-new <- data.frame(NECK=c(17,22,26))
-predict(simp,new)
-predict(simp,new,se.fit=TRUE)
+newData <- data.frame(NECK=c(17,22,26))
+predict(simp,newData)
+predict(simp,newData,se.fit=TRUE)
 ```
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
 
+
+
+
+```{r}
+headwith <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(headwith)
+summary.lm(headwith)
+```
+
+This shows that the residual standard error is 7.32 on 52 degrees of freedom and the Adjusted R- squared is .0532. This is less than the neck one.
+
+
+```{r}
+headwith <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(headwith)
+summary.lm(headwith)
+```
+
+
+```{r}
+headwith <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(headwith)
+summary.lm(headwith)
+```
+
+
+```{r}
+headwith <- lm(LENGTH~HEADWTH,data=bears)
+plot(LENGTH~HEADWTH,data=bears)
+abline(headwith)
+summary.lm(headwith)
+```
