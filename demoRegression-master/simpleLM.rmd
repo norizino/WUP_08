@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Bears Regression model
+# Set up Regression models
 
 ### make a simple regression model - read in the data
 
@@ -109,7 +109,8 @@ newData <- data.frame(NECK=c(22,17.5,17))
 predict(simp,newData,se.fit=TRUE)
 ```
 
-
+This is the new prediction of NECK showing it predicts to be  
+60.99353 53.58868 52.76592.  
 
 
 ## Prediction of HEADLEN
@@ -119,7 +120,8 @@ newData <- data.frame(HEADLEN=c(15.5,11.5,13))
 predict(headlenght,newData,se.fit=TRUE)
 ```
 
-This is the prediction of NECK showing it predicts 15.5 to be .
+This is the prediction of HEADLEN showing it predicts to be  
+70.30793 51.94202 58.82924.  
 
 
 ## Prediction of HEADWTH
@@ -128,7 +130,8 @@ newData <- data.frame(HEADWTH=c(5.5,9,8))
 predict(headwith,newData,se.fit=TRUE)
 ```
 
-This is the prediction of NECK showing it predicts 5.5 to be  .
+This is the prediction of HEADWTH showing it predicts to be
+55.00274 73.21694 68.01288.  
 
 
 ## Prediction of WEIHGHT
@@ -137,7 +140,8 @@ newData <- data.frame(WEIGHT=c(166,105,90 ))
 predict(weight,newData,se.fit=TRUE)
 ```
 
-This is the prediction of NECK showing it predicts 166 to be 
+This is the prediction of WEIGHT showing it predicts as  
+57.33408 52.70159 51.56245.  
 
 
 
@@ -147,11 +151,18 @@ newData <- data.frame(CHEST=c(35,29,28))
 predict(chest,newData,se.fit=TRUE)
 ```
 
-This is the prediction of NECK showing it predicts 35 to be .
+This is the prediction of CHEST showing it predicts to be  
+57.94200 51.83603 50.81837.  
 
 # Conclution
 
+The best model based on HEADLEN as seen by adjusted R-squared, and the prediction of the length for bears 5,15,23 is   
+70.31, 51.94, 58.83.  
 
+The actual lengths of the bears was  
+`r bears$LENGTH [c(5,15,23)]`.
+
+The error in prediction for bear number 5 was about 8 inches, for bear number 15 the prediction was right on, and bear number 23 the error in prediction was just under 6 inches.
 
 
 
