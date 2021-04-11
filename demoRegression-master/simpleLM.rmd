@@ -46,7 +46,7 @@ This is the prediction of NECK showing it predicts 17 to be 52.76592, 22 will be
 ## Surely there is another variable that can better predict LENGTH than NECK. Find one and compare its performance to that of neck by it value of Adjusted-Rsquared (bigger is better).
 
 # HEADWTH
-
+## Model LENGTH~HEADWTH
 
 ```{r}
 headwith <- lm(LENGTH~HEADWTH,data=bears)
@@ -59,6 +59,7 @@ This shows that the residual standard error is 7.32 on 52 degrees of freedom and
 
 
 # HEADLEN
+## Model LENGTH~HEADLEN
 
 ```{r}
 headlenght <- lm(LENGTH~HEADLEN,data=bears)
@@ -71,6 +72,7 @@ This shows that the residual standard error is 4.24 on 52 degrees of freedom and
 
 
 # WEIGHT
+## Model LEGTH~WEIGHT
 
 ```{r}
 weight <- lm(LENGTH~WEIGHT,data=bears)
@@ -83,6 +85,7 @@ This shows that the residual standard error is 5.432 on 52 degrees of freedom an
 
 
 # CHEST
+## Model LENGTH~CHEST
 
 ```{r}
 chest <- lm(LENGTH~CHEST,data=bears)
@@ -94,23 +97,61 @@ summary.lm(chest)
 This shows that the residual standard error is 4.939 on 52 degrees of freedom and the Adjusted R- squared is 0.7869. The R square is a little bigger than the last but not the biggest of the tests.
 
 
-# SEX
+
+
+# Predictions
+
+
+## New Prediction of Neck
 
 ```{r}
-sex <- lm(LENGTH~SEX,data=bears)
-plot(LENGTH~SEX,data=bears)
-abline(sex)
-summary.lm(sex)
+newData <- data.frame(NECK=c(22,17.5,17))
+predict(simp,newData,se.fit=TRUE)
 ```
 
-This shows that the residual standard error is 10.75 on 52 degrees of freedom and the Adjusted R- squared is 0.008373. The R square is extremely small.
 
 
-## Predictions of HEADLEN
+
+## Prediction of HEADLEN
 
 ```{r}
-newData <- data.frame(HEADLEN=c(17,13,9))
+newData <- data.frame(HEADLEN=c(15.5,11.5,13))
 predict(headlenght,newData,se.fit=TRUE)
 ```
 
-This is the prediction of NECK showing it predicts 17 to be 77.19515, 13 as 58.82924 and 9 is 40.46332 .
+This is the prediction of NECK showing it predicts 15.5 to be .
+
+
+## Prediction of HEADWTH
+```{r}
+newData <- data.frame(HEADWTH=c(5.5,9,8))
+predict(headwith,newData,se.fit=TRUE)
+```
+
+This is the prediction of NECK showing it predicts 5.5 to be  .
+
+
+## Prediction of WEIHGHT
+```{r}
+newData <- data.frame(WEIGHT=c(166,105,90 ))
+predict(weight,newData,se.fit=TRUE)
+```
+
+This is the prediction of NECK showing it predicts 166 to be 
+
+
+
+## Prediction of CHEST
+```{r}
+newData <- data.frame(CHEST=c(35,29,28))
+predict(chest,newData,se.fit=TRUE)
+```
+
+This is the prediction of NECK showing it predicts 35 to be .
+
+# Conclution
+
+
+
+
+
